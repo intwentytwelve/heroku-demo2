@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 import pickle
 import numpy as np
 
-app1 = Flask(__name__)
+app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/')
@@ -23,4 +23,4 @@ def predict():
     return render_template('index.html', prediction_text='The flower should be $ {}'.format(output))
 
 if __name__ == "__main__":
-    app1.run(debug=True)
+    app.run(debug=True)
